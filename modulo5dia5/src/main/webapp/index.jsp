@@ -10,5 +10,8 @@
  <a href="viewmej">Ver Mejoras</a><br/> 
  <a href="viewcap">Ver Capacitaciones</a><br/> 
  <a href="viewch">Ver Checklist</a><br/> 
+ <a href="viewtasa">Ver tasa de accidentes</a><br/>
+ <a href="viewmoro">Ver clientes morosos</a><br/> 
+  <a href="revisarlog">Ver Bitacora de sistema</a><br/>  
 </body>
 </html>

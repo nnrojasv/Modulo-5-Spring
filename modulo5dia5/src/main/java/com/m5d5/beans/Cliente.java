@@ -8,6 +8,7 @@ public class Cliente {
 	private String correoelectronico;
 	private String rubro;
 	private String direccion;
+	private int tasaacc;
 	
 	public Cliente() {
 		super();
@@ -72,6 +73,14 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 	
+	public int getTasaacc() {
+		return tasaacc;
+	}
+
+	public void setTasaacc(int tasaacc) {
+		this.tasaacc = tasaacc;
+	}
+
 	@Override
 	public String toString() {
 		return "Cliente [idcliente=" + id + ", nombre=" + nombre + ", telefono=" + telefono

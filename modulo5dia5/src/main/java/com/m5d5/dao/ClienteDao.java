@@ -50,7 +50,34 @@ public class ClienteDao {
 	            return c;
 	        }    
 	    });    
-	}    	
+	} 
+	
+	public List<Cliente> tasaAcc() {
+		 return template.query("select count(*) \"Accidentabiidad\" , cliente.nombre from cliente join accidentes on accidentes.cliente_id = cliente.id where fecha like '%2019' group by cliente.nombre\r\n" + 
+		 		"",new RowMapper<Cliente>(){    
+		        public Cliente mapRow(ResultSet rs, int row) throws SQLException {    
+		            Cliente cli=new Cliente();
+		            cli.setTasaacc(rs.getInt(1));   
+		            cli.setNombre(rs.getString(2));    
+		            
+		            return cli;
+		        }    
+		    }); 
+	}
+	
+	public List<Cliente> morosidad() {
+		 return template.query("Select cliente.nombre from cliente\r\n" + 
+		 		"left join pagos on pagos.cliente_id= cliente.id\r\n" + 
+		 		"where pagos.mesanio not like (Select to_char(sysdate, 'MM-YYYY') from dual)",new RowMapper<Cliente>(){    
+		        public Cliente mapRow(ResultSet rs, int row) throws SQLException {    
+		            Cliente cli=new Cliente();
+		             
+		            cli.setNombre(rs.getString(1));    
+		            
+		            return cli;
+		        }    
+		    }); 
+	}
 	
 	
 }

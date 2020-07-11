@@ -24,7 +24,7 @@
 	   <td>${cli.direccion}</td>  
 	   <td><a href="editcli/${cli.id}">Editar</a></td>  
 	   <td><a href="deletecli/${cli.id}">Eliminar</a></td>
-	    <td><a href="reportecli/${cli.id}">Reporte</a></td>    
+	    <td><a href="viewact/${cli.id}">Reporte</a></td>    
    </tr>
    </c:forEach>  
    </table>  
