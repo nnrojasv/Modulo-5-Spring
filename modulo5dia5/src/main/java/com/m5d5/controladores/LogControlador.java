@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +15,6 @@ import com.m5d5.beans.Bitacora;
 @Controller
 public class LogControlador {
 
-	static Logger log = Logger.getLogger(LogControlador.class.getName());
-	
     @RequestMapping("/revisarlog")    
     public String showform(Model m){
     	
@@ -28,7 +25,7 @@ public class LogControlador {
         try {
            // Apertura del fichero y creacion de BufferedReader para poder
            // hacer una lectura comoda (disponer del metodo readLine()).
-           archivo = new File ("C:\\Users\\mirko\\Documents\\log.out");
+           archivo = new File ("log.out");
            fr = new FileReader (archivo);
            br = new BufferedReader(fr);
 
@@ -41,10 +38,11 @@ public class LogControlador {
               list.add(msj);
            }
            
-           m.addAttribute("listlog",list);
+           m.addAttribute("list",list);
         }
         catch(Exception e){
            e.printStackTrace();
+          
         }finally{
            // En el finally cerramos el fichero, para asegurarnos
            // que se cierra tanto si todo va bien como si salta 
@@ -55,9 +53,10 @@ public class LogControlador {
               }                  
            }catch (Exception e2){ 
               e2.printStackTrace();
+            
            }
         }
-        log.info("Vista de Bitacora de sistema");
+        
         return "viewlog";
     } 
 

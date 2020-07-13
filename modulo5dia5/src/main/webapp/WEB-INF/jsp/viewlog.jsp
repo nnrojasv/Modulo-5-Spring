@@ -13,7 +13,7 @@
 	<tr>
 		<th>Tipo </th><th>Clase </th><th>Fecha</th><th>Mensaje</th>
 	</tr>  
-   <c:forEach var="log" items="${listlog}">   
+   <c:forEach var="log" items="${list}">   
    <tr>  
 	   <td>${log.tipo}</td>  
 	   <td>${log.clase}</td>  
